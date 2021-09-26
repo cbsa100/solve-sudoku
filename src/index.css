@@ -1,13 +1,84 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 5px 15px rgb(149, 149, 149);
+}
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  max-width: 700px;
+  width: fit-content;
+  justify-content: center;
+}
+.cell {
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: white;
+}
+/*make cells look like sudoku*/
+.cell:nth-child(3n + 0) {
+  border-right: solid 3px black;
+}
+.cell:nth-child(9n + 1) {
+  border-left: solid 3px black;
+}
+.cell:nth-child(-n + 9) {
+  border-top: solid 3px black;
+}
+.cell:nth-last-child(-n + 9) {
+  border-bottom: solid 4px black;
+}
+.cell:nth-child(n + 19):nth-child(-n + 27) {
+  border-bottom: solid 3px black;
+}
+.cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-bottom: solid 3px black;
+}
+.cell-input {
+  border: none;
+  text-align: center;
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+/* solve btn */
+.btn {
+  font-size: 20px;
+  padding: 5px 20px;
+  background-color: firebrick;
+  color: white;
+  border: none;
+  margin: 20px;
+}
+
+/* remove arrows from num input*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
 }
